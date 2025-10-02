@@ -1,0 +1,3 @@
+package creational.singleton;
+import java.util.logging.*;
+public class SingletonDemo {static final class Config{private static Config instance;private static final Logger LOG=Logger.getLogger(Config.class.getName());private String env;private Config(){env="dev";LOG.info("Config created");}public static synchronized Config getInstance(){if(instance==null)instance=new Config();return instance;}public String getEnv(){return env;}public void setEnv(String e){env=e;}}public static void run(){Config c1=Config.getInstance();Config c2=Config.getInstance();Logger.getLogger(SingletonDemo.class.getName()).info("Same? "+(c1==c2));}}
